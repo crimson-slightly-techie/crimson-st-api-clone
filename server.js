@@ -2,6 +2,7 @@
 const express = require("express")
 const app = express()
 const cors = require("cors")
+const colors = require('colors')
 const morgan = require("morgan")
 const db = require("./config/db")
 const cookieParser = require("cookie-parser")
