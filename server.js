@@ -4,6 +4,8 @@ const cors = require("cors")
 const morgan = require("morgan")
 const db = require("./config/db")
 const cookieParser = require("cookie-parser")
+const userRouter = require("./routes/userRoutes")
+const postRouter = require("./routes/postRoutes")
 require("dotenv").config()
 
 // mongodb connection
@@ -21,6 +23,8 @@ app.use(cookieParser())
 app.get("/api/v2", (req, res) => {
 	res.send("hi there")
 })
+ app.use('/api/v2', userRouter);
+app.use('/api/v2', postRouter);
 // Connection
 const PORT = process.env.PORT || 5000
 app.listen(PORT, () => {
