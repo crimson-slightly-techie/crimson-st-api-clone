@@ -6,6 +6,8 @@ const db = require("./config/db")
 const cookieParser = require("cookie-parser")
 require("dotenv").config()
 
+const postRoutes=require('./routes/postRoutes')
+
 // mongodb connection
 db()
 
@@ -17,6 +19,7 @@ app.use(express.json({ extended: true }))
 app.use(cookieParser())
 
 // Routes
+app.use('/',postRoutes)
 
 app.get("/api/v2", (req, res) => {
 	res.send("hi there")
